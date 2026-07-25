@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { Difficulty, GamePhase, GameResult } from '#shared/types/tic-tac-toe'
+import type { Difficulty, GamePhase, GameResult, Mark } from '#shared/types/tic-tac-toe'
 
 interface Props {
   roundNumber: number
   difficulty: Difficulty
+  humanMark: Mark
   phase: GamePhase
   result: GameResult
   title: string
@@ -26,7 +27,7 @@ defineProps<Props>()
         aria-hidden="true"
         class="px-2.5"
       >/</span>
-      You are X
+      You are {{ humanMark }}
     </p>
 
     <div
@@ -59,7 +60,7 @@ defineProps<Props>()
       </UBadge>
       <UBadge
         v-else-if="result.status === 'won'"
-        :color="result.winner === 'X' ? 'success' : 'primary'"
+        :color="result.winner === humanMark ? 'success' : 'primary'"
         variant="soft"
         size="lg"
         class="gap-2 rounded-md px-4 py-2 font-mono text-xs font-semibold tracking-[0.12em]"
@@ -68,7 +69,7 @@ defineProps<Props>()
           class="size-2 rounded-full bg-current"
           aria-hidden="true"
         />
-        {{ result.winner === 'X' ? 'LINE FOUND' : 'CPU WINS' }}
+        {{ result.winner === humanMark ? 'LINE FOUND' : 'CPU WINS' }}
       </UBadge>
       <UBadge
         v-else-if="result.status === 'draw'"

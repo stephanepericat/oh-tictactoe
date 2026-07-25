@@ -15,6 +15,7 @@ describe('useTicTacToe', () => {
     const game = createGame()
 
     expect(game.roundDifficulty.value).toBe('hard')
+    expect(game.roundHumanMark.value).toBe('X')
     expect(game.phase.value).toBe('human-turn')
     expect(game.statusTitle.value).toBe('Your move, human.')
     expect(game.board.value).toEqual(Array(9).fill(null))
@@ -71,6 +72,68 @@ describe('useTicTacToe', () => {
     expect(game.roundDifficulty.value).toBe('easy')
     expect(game.difficultyChangePending.value).toBe(false)
     expect(game.board.value[8]).toBe('O')
+  })
+
+  it('switches to O immediately and lets the computer open as X', () => {
+    vi.useFakeTimers()
+    const game = createGame()
+
+    game.setHumanMark('O')
+
+    expect(game.roundHumanMark.value).toBe('O')
+    expect(game.roundNumber.value).toBe(2)
+    expect(game.phase.value).toBe('computer-turn')
+    expect(game.board.value).toEqual(Array(9).fill(null))
+
+    vi.advanceTimersByTime(260)
+
+    expect(game.board.value[4]).toBe('X')
+    expect(game.phase.value).toBe('human-turn')
+    expect(game.playCell(0)).toBe(true)
+    expect(game.board.value[0]).toBe('O')
+  })
+
+  it('cancels an opening computer turn when the next round switches back to X', () => {
+    vi.useFakeTimers()
+    const game = createGame()
+
+    game.setHumanMark('O')
+    game.setHumanMark('X')
+    vi.runAllTimers()
+
+    expect(game.roundHumanMark.value).toBe('X')
+    expect(game.roundNumber.value).toBe(3)
+    expect(game.phase.value).toBe('human-turn')
+    expect(game.board.value).toEqual(Array(9).fill(null))
+    expect(vi.getTimerCount()).toBe(0)
+  })
+
+  it('attributes an O win to the human score', () => {
+    vi.useFakeTimers()
+    const game = createGame({ random: () => 0 })
+
+    game.setNextDifficulty('easy')
+    game.setHumanMark('O')
+    vi.advanceTimersByTime(260)
+
+    for (const move of [4, 2]) {
+      game.playCell(move)
+      vi.advanceTimersByTime(260)
+    }
+
+    game.playCell(6)
+
+    expect(game.result.value).toEqual({
+      status: 'won',
+      winner: 'O',
+      line: [2, 4, 6]
+    })
+    expect(game.statusTitle.value).toBe('You found the line.')
+    expect(game.scores.value).toEqual({
+      human: 1,
+      computer: 0,
+      draws: 0
+    })
   })
 
   it('counts a human win once and preserves it across rounds', () => {

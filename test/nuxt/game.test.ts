@@ -23,7 +23,9 @@ describe('single-player game', () => {
     expect(wrapper.get('[aria-label="Row 1, column 1, empty"]').attributes('aria-label'))
       .toBe('Row 1, column 1, empty')
     expect(wrapper.text()).toContain('hard mode')
+    expect(wrapper.text()).toContain('You are X')
     expect(wrapper.text()).toContain('Your move, human.')
+    expect(wrapper.get('[aria-label="Your mark"] [aria-pressed="true"]').text()).toBe('X')
     expect(wrapper.get('[aria-label="You, 0 wins"]').text()).toBe('00')
     expect(wrapper.get('[aria-label="CPU, 0 wins"]').text()).toBe('00')
     expect(wrapper.get('[aria-label="Draws, 0 draws"]').text()).toBe('00')
@@ -75,6 +77,27 @@ describe('single-player game', () => {
 
     expect(wrapper.text()).toContain('easy mode')
     expect(wrapper.text()).toContain('quickPick()')
+  })
+
+  it('switches to O immediately and renders the computer opening as X', async () => {
+    wrapper = await mountGame()
+    vi.useFakeTimers()
+
+    await wrapper.get('[aria-label="Your mark"] [aria-pressed="false"]').trigger('click')
+
+    expect(wrapper.text()).toContain('You are O')
+    expect(wrapper.text()).toContain('Round 02')
+    expect(wrapper.text()).toContain('CPU TURN')
+
+    vi.advanceTimersByTime(260)
+    await nextTick()
+
+    expect(cell(4).attributes('data-mark')).toBe('X')
+    expect(wrapper.text()).toContain('YOUR TURN')
+
+    await cell(0).trigger('click')
+
+    expect(cell(0).attributes('data-mark')).toBe('O')
   })
 
   it('supports arrow-key navigation with one cell in the tab order', async () => {

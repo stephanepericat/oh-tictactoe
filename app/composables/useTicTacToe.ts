@@ -1,5 +1,5 @@
 import { computed, onScopeDispose, readonly, shallowRef } from 'vue'
-import type { Board, Difficulty, GamePhase, SessionScore } from '#shared/types/tic-tac-toe'
+import type { Board, Difficulty, GamePhase, Mark, SessionScore } from '#shared/types/tic-tac-toe'
 import { chooseEasyMove, chooseHardMove } from '#shared/utils/tic-tac-toe-ai'
 import { createBoard, getGameResult, placeMark } from '#shared/utils/tic-tac-toe'
 
@@ -7,9 +7,6 @@ interface UseTicTacToeOptions {
   computerDelay?: number
   random?: () => number
 }
-
-const HUMAN_MARK = 'X'
-const COMPUTER_MARK = 'O'
 
 export function useTicTacToe(options: UseTicTacToeOptions = {}) {
   const {
@@ -21,6 +18,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
   const phase = shallowRef<GamePhase>('human-turn')
   const roundDifficulty = shallowRef<Difficulty>('hard')
   const nextDifficulty = shallowRef<Difficulty>('hard')
+  const roundHumanMark = shallowRef<Mark>('X')
   const roundNumber = shallowRef(1)
   const scores = shallowRef<SessionScore>({
     human: 0,
@@ -39,6 +37,9 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
   const difficultyChangePending = computed(() => (
     roundDifficulty.value !== nextDifficulty.value
   ))
+  const computerMark = computed<Mark>(() => (
+    roundHumanMark.value === 'X' ? 'O' : 'X'
+  ))
 
   const statusTitle = computed(() => {
     if (phase.value === 'computer-turn') {
@@ -50,7 +51,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     }
 
     if (result.value.status === 'won') {
-      return result.value.winner === HUMAN_MARK
+      return result.value.winner === roundHumanMark.value
         ? 'You found the line.'
         : 'The machine wins this one.'
     }
@@ -70,7 +71,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     }
 
     if (result.value.status === 'won') {
-      return result.value.winner === HUMAN_MARK
+      return result.value.winner === roundHumanMark.value
         ? 'The search tree did not see that coming.'
         : 'There was only one safe line. It found it.'
     }
@@ -85,7 +86,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
       return false
     }
 
-    const nextBoard = placeMark(board.value, index, HUMAN_MARK)
+    const nextBoard = placeMark(board.value, index, roundHumanMark.value)
 
     if (!nextBoard) {
       return false
@@ -97,8 +98,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
       return true
     }
 
-    phase.value = 'computer-turn'
-    computerTimer = setTimeout(playComputerTurn, computerDelay)
+    scheduleComputerTurn()
 
     return true
   }
@@ -107,12 +107,26 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     nextDifficulty.value = difficulty
   }
 
+  function setHumanMark(mark: Mark): void {
+    if (roundHumanMark.value === mark) {
+      return
+    }
+
+    roundHumanMark.value = mark
+    newRound()
+  }
+
   function newRound(): void {
     clearComputerTurn()
     board.value = createBoard()
     roundDifficulty.value = nextDifficulty.value
     roundNumber.value += 1
-    phase.value = 'human-turn'
+
+    if (roundHumanMark.value === 'X') {
+      phase.value = 'human-turn'
+    } else {
+      scheduleComputerTurn()
+    }
   }
 
   function resetScores(): void {
@@ -131,15 +145,15 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     }
 
     const move = roundDifficulty.value === 'hard'
-      ? chooseHardMove(board.value, COMPUTER_MARK, HUMAN_MARK)
-      : chooseEasyMove(board.value, COMPUTER_MARK, random)
+      ? chooseHardMove(board.value, computerMark.value, roundHumanMark.value)
+      : chooseEasyMove(board.value, computerMark.value, random)
 
     if (move === null) {
       phase.value = 'finished'
       return
     }
 
-    const nextBoard = placeMark(board.value, move, COMPUTER_MARK)
+    const nextBoard = placeMark(board.value, move, computerMark.value)
 
     if (!nextBoard) {
       phase.value = 'finished'
@@ -169,7 +183,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
         ...scores.value,
         draws: scores.value.draws + 1
       }
-    } else if (terminalResult.winner === HUMAN_MARK) {
+    } else if (terminalResult.winner === roundHumanMark.value) {
       scores.value = {
         ...scores.value,
         human: scores.value.human + 1
@@ -193,6 +207,11 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     }
   }
 
+  function scheduleComputerTurn(): void {
+    phase.value = 'computer-turn'
+    computerTimer = setTimeout(playComputerTurn, computerDelay)
+  }
+
   onScopeDispose(clearComputerTurn)
 
   return {
@@ -204,12 +223,14 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     roundDifficulty: readonly(roundDifficulty),
     nextDifficulty: readonly(nextDifficulty),
     difficultyChangePending,
+    roundHumanMark: readonly(roundHumanMark),
     roundNumber: readonly(roundNumber),
     scores: readonly(scores),
     statusTitle,
     statusDetail,
     playCell,
     setNextDifficulty,
+    setHumanMark,
     newRound,
     resetScores
   }

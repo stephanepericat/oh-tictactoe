@@ -1,25 +1,65 @@
 <script setup lang="ts">
-import type { Difficulty } from '#shared/types/tic-tac-toe'
+import type { Difficulty, Mark } from '#shared/types/tic-tac-toe'
 
 interface Props {
   roundDifficulty: Difficulty
   nextDifficulty: Difficulty
   difficultyChangePending: boolean
+  humanMark: Mark
 }
 
 defineProps<Props>()
 
 const emit = defineEmits<{
   difficulty: [difficulty: Difficulty]
+  mark: [mark: Mark]
   newRound: []
 }>()
 
 const difficulties: readonly Difficulty[] = ['hard', 'easy']
+const marks: readonly Mark[] = ['X', 'O']
 </script>
 
 <template>
   <div>
-    <section aria-labelledby="difficulty-title">
+    <section aria-labelledby="mark-title">
+      <div class="flex items-end justify-between gap-4">
+        <h2
+          id="mark-title"
+          class="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[var(--game-text-muted)]"
+        >
+          Your mark
+        </h2>
+        <span class="font-mono text-[0.66rem] uppercase tracking-[0.1em] text-[var(--game-text-muted)]">
+          Starts a new round
+        </span>
+      </div>
+
+      <div
+        role="group"
+        aria-label="Your mark"
+        class="mt-3 grid grid-cols-2 rounded-[10px] bg-[var(--game-surface-strong)] p-1"
+      >
+        <button
+          v-for="mark in marks"
+          :key="mark"
+          type="button"
+          :aria-pressed="humanMark === mark"
+          class="min-h-11 rounded-[7px] px-4 text-sm font-semibold transition-[background-color,color] duration-150 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--game-accent)] motion-reduce:transition-none"
+          :class="humanMark === mark
+            ? 'bg-[var(--game-ink)] text-[var(--game-paper)]'
+            : 'text-[var(--game-text-secondary)] hover:text-[var(--game-ink)]'"
+          @click="emit('mark', mark)"
+        >
+          {{ mark }}
+        </button>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="difficulty-title"
+      class="mt-7 border-t border-[var(--game-border)] pt-7"
+    >
       <div class="flex items-end justify-between gap-4">
         <h2
           id="difficulty-title"

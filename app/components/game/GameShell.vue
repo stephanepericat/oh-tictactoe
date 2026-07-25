@@ -14,6 +14,7 @@ const game = useTicTacToe()
         <GameStatus
           :round-number="game.roundNumber.value"
           :difficulty="game.roundDifficulty.value"
+          :human-mark="game.roundHumanMark.value"
           :phase="game.phase.value"
           :result="game.result.value"
           :title="game.statusTitle.value"
@@ -52,7 +53,9 @@ const game = useTicTacToe()
           :round-difficulty="game.roundDifficulty.value"
           :next-difficulty="game.nextDifficulty.value"
           :difficulty-change-pending="game.difficultyChangePending.value"
+          :human-mark="game.roundHumanMark.value"
           @difficulty="game.setNextDifficulty"
+          @mark="game.setHumanMark"
           @new-round="game.newRound"
         />
       </aside>
