@@ -1,7 +1,11 @@
-<script setup>
+<script setup lang="ts">
+const title = 'Oh! Tic-Tac-Toe'
+const description = 'A quick, clever game of tic-tac-toe against an Easy or unbeatable Hard opponent.'
+
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'theme-color', content: '#f7f3e8' }
   ],
   link: [
     { rel: 'icon', href: '/favicon.ico' }
@@ -11,67 +15,49 @@ useHead({
   }
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
-
 useSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary'
 })
 </script>
 
 <template>
   <UApp>
-    <UHeader>
+    <UHeader
+      :toggle="false"
+      class="border-b border-[var(--game-border)] bg-[var(--game-paper)]"
+    >
       <template #left>
-        <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
+        <NuxtLink
+          to="/"
+          aria-label="Oh! Tic-Tac-Toe home"
+          class="rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--game-accent)]"
+        >
+          <AppLogo />
         </NuxtLink>
-
-        <TemplateMenu />
       </template>
 
       <template #right>
-        <UColorModeButton />
-
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
+        <UBadge
           color="neutral"
-          variant="ghost"
-        />
+          variant="soft"
+          size="lg"
+          class="gap-2 rounded-md bg-[var(--game-surface-strong)] px-4 py-2 font-mono text-xs font-semibold tracking-[0.18em] text-[var(--game-text-secondary)]"
+        >
+          <span
+            class="size-2 rounded-full bg-[var(--game-accent)]"
+            aria-hidden="true"
+          />
+          LOCAL
+        </UBadge>
       </template>
     </UHeader>
 
-    <UMain>
+    <UMain class="bg-[var(--game-paper)]">
       <NuxtPage />
     </UMain>
-
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
-
-    <UFooter>
-      <template #left>
-        <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
-        </p>
-      </template>
-
-      <template #right>
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        />
-      </template>
-    </UFooter>
   </UApp>
 </template>
