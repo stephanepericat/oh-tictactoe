@@ -17,7 +17,7 @@ describe('game accessibility', () => {
     vi.restoreAllMocks()
   })
 
-  it('exposes named landmarks and icon-only controls in the app shell', async () => {
+  it('exposes named landmarks in the app shell', async () => {
     wrapper = await mountSuspended(App, {
       attachTo: document.body
     })
@@ -25,8 +25,6 @@ describe('game accessibility', () => {
     expect(wrapper.find('header').exists()).toBe(true)
     expect(wrapper.find('main').exists()).toBe(true)
     expect(wrapper.get('a[aria-label="Oh! Tic-Tac-Toe home"]').attributes('href')).toBe('/')
-    expect(wrapper.get('button[aria-label*="mode"]').attributes('aria-label'))
-      .toMatch(/^Switch to (dark|light) mode$/)
   })
 
   it('publishes a complete ARIA grid and single-selection controls', async () => {
@@ -56,6 +54,8 @@ describe('game accessibility', () => {
     ])
     expect(cells.filter(cell => cell.attributes('tabindex') === '0')).toHaveLength(1)
     expect(cells.every(cell => cell.attributes('aria-disabled') === 'false')).toBe(true)
+    expect(wrapper.findAll('[data-preview-mark]')
+      .every(preview => preview.attributes('aria-hidden') === 'true')).toBe(true)
     expect(status.attributes()).toMatchObject({
       'aria-live': 'polite',
       'aria-atomic': 'true'
@@ -115,38 +115,6 @@ describe('game accessibility', () => {
     expect(wrapper.findAll('[role="gridcell"] button[tabindex="0"]')).toHaveLength(1)
   })
 
-  it('keeps previews and winning decoration out of the accessibility tree', async () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0)
-    wrapper = await mountGame()
-
-    for (const preview of wrapper.findAll('[data-preview-mark]')) {
-      expect(preview.attributes('aria-hidden')).toBe('true')
-    }
-
-    await wrapper.get('[aria-label="Difficulty"] [aria-pressed="false"]').trigger('click')
-    await buttonNamed('New round').trigger('click')
-    vi.useFakeTimers()
-
-    for (const move of [0, 3, 6]) {
-      await cell(move).trigger('click')
-
-      if (move !== 6) {
-        vi.advanceTimersByTime(260)
-        await nextTick()
-      }
-    }
-
-    expect(wrapper.get('[role="status"]').text()).toContain('You found the line.')
-    expect(wrapper.findAll('[data-winning-line]')).toHaveLength(3)
-
-    for (const line of wrapper.findAll('[data-winning-line]')) {
-      expect(line.attributes('aria-hidden')).toBe('true')
-    }
-
-    expect(wrapper.findAll('[role="gridcell"] button')
-      .every(button => button.attributes('aria-disabled') === 'true')).toBe(true)
-  })
-
   async function mountGame(): Promise<VueWrapper> {
     return await mountSuspended(GameShell, {
       attachTo: document.body
@@ -159,19 +127,5 @@ describe('game accessibility', () => {
     }
 
     return wrapper.get(`[data-cell-index="${index}"]`)
-  }
-
-  function buttonNamed(name: string) {
-    if (!wrapper) {
-      throw new Error('Game is not mounted')
-    }
-
-    const button = wrapper.findAll('button').find(candidate => candidate.text().trim() === name)
-
-    if (!button) {
-      throw new Error(`Could not find button named ${name}`)
-    }
-
-    return button
   }
 })

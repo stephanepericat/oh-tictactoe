@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { nextTick, shallowRef, useTemplateRef } from 'vue'
 import type { Board, GamePhase, Mark, WinningLine } from '#shared/types/tic-tac-toe'
-import GameCell from './GameCell.vue'
 
 interface Props {
   board: Board

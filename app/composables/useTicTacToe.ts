@@ -4,15 +4,11 @@ import { chooseEasyMove, chooseHardMove } from '#shared/utils/tic-tac-toe-ai'
 import { createBoard, getGameResult, placeMark } from '#shared/utils/tic-tac-toe'
 
 interface UseTicTacToeOptions {
-  computerDelay?: number
   random?: () => number
 }
 
 export function useTicTacToe(options: UseTicTacToeOptions = {}) {
-  const {
-    computerDelay = 260,
-    random = Math.random
-  } = options
+  const { random = Math.random } = options
 
   const board = shallowRef<Board>(createBoard())
   const phase = shallowRef<GamePhase>('human-turn')
@@ -149,18 +145,10 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
       : chooseEasyMove(board.value, computerMark.value, random)
 
     if (move === null) {
-      phase.value = 'finished'
       return
     }
 
-    const nextBoard = placeMark(board.value, move, computerMark.value)
-
-    if (!nextBoard) {
-      phase.value = 'finished'
-      return
-    }
-
-    board.value = nextBoard
+    board.value = placeMark(board.value, move, computerMark.value)!
 
     if (!finishIfTerminal()) {
       phase.value = 'human-turn'
@@ -174,25 +162,13 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
       return false
     }
 
-    if (phase.value === 'finished') {
-      return true
-    }
+    const scoreKey = terminalResult.status === 'draw'
+      ? 'draws'
+      : terminalResult.winner === roundHumanMark.value ? 'human' : 'computer'
 
-    if (terminalResult.status === 'draw') {
-      scores.value = {
-        ...scores.value,
-        draws: scores.value.draws + 1
-      }
-    } else if (terminalResult.winner === roundHumanMark.value) {
-      scores.value = {
-        ...scores.value,
-        human: scores.value.human + 1
-      }
-    } else {
-      scores.value = {
-        ...scores.value,
-        computer: scores.value.computer + 1
-      }
+    scores.value = {
+      ...scores.value,
+      [scoreKey]: scores.value[scoreKey] + 1
     }
 
     phase.value = 'finished'
@@ -209,7 +185,7 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
 
   function scheduleComputerTurn(): void {
     phase.value = 'computer-turn'
-    computerTimer = setTimeout(playComputerTurn, computerDelay)
+    computerTimer = setTimeout(playComputerTurn, 260)
   }
 
   onScopeDispose(clearComputerTurn)
@@ -219,7 +195,6 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     phase: readonly(phase),
     result,
     winningLine,
-    canHumanPlay,
     roundDifficulty: readonly(roundDifficulty),
     nextDifficulty: readonly(nextDifficulty),
     difficultyChangePending,

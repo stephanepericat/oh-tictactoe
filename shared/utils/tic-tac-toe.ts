@@ -1,10 +1,4 @@
-import type { Board, Cell, GameResult, Mark, WinningLine } from '../types/tic-tac-toe'
-
-type MutableBoard = [
-  Cell, Cell, Cell,
-  Cell, Cell, Cell,
-  Cell, Cell, Cell
-]
+import type { Board, GameResult, Mark, WinningLine } from '../types/tic-tac-toe'
 
 export const WINNING_LINES = [
   [0, 1, 2],
@@ -41,19 +35,9 @@ export function getGameResult(board: Board): GameResult {
 }
 
 export function getLegalMoves(board: Board): number[] {
-  if (getGameResult(board).status !== 'playing') {
-    return []
-  }
-
-  const moves: number[] = []
-
-  board.forEach((cell, index) => {
-    if (cell === null) {
-      moves.push(index)
-    }
-  })
-
-  return moves
+  return getGameResult(board).status === 'playing'
+    ? board.flatMap((cell, index) => cell === null ? [index] : [])
+    : []
 }
 
 export function placeMark(board: Board, index: number, mark: Mark): Board | null {
@@ -67,8 +51,5 @@ export function placeMark(board: Board, index: number, mark: Mark): Board | null
     return null
   }
 
-  const nextBoard: MutableBoard = [...board]
-  nextBoard[index] = mark
-
-  return nextBoard
+  return board.with(index, mark) as unknown as Board
 }

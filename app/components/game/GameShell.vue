@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import GameBoard from './GameBoard.vue'
-import GameControls from './GameControls.vue'
-import GameScoreboard from './GameScoreboard.vue'
-import GameStatus from './GameStatus.vue'
-
 const game = useTicTacToe()
 </script>
 

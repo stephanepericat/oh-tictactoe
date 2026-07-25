@@ -30,12 +30,7 @@ export function chooseEasyMove(
     return immediateWin
   }
 
-  const randomIndex = Math.min(
-    Math.floor(Math.max(0, random()) * legalMoves.length),
-    legalMoves.length - 1
-  )
-
-  return legalMoves[randomIndex] ?? null
+  return legalMoves[Math.floor(random() * legalMoves.length)]!
 }
 
 export function chooseHardMove(

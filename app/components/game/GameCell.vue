@@ -117,11 +117,4 @@ function selectCell(): void {
     transform: scaleX(1);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .game-mark,
-  .game-winning-line {
-    animation: none;
-  }
-}
 </style>
