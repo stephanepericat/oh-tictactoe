@@ -143,12 +143,16 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     const move = roundDifficulty.value === 'hard'
       ? chooseHardMove(board.value, computerMark.value, roundHumanMark.value)
       : chooseEasyMove(board.value, computerMark.value, random)
+    const nextBoard = move === null
+      ? null
+      : placeMark(board.value, move, computerMark.value)
 
-    if (move === null) {
+    if (!nextBoard) {
+      phase.value = 'human-turn'
       return
     }
 
-    board.value = placeMark(board.value, move, computerMark.value)!
+    board.value = nextBoard
 
     if (!finishIfTerminal()) {
       phase.value = 'human-turn'

@@ -114,29 +114,53 @@ describe('hard computer', () => {
   })
 
   it('cannot be forced to lose when it plays O', () => {
-    expect(humanCanForceWin(createBoard(), 'X')).toBe(false)
+    expect(humanCanForceWin(createBoard(), 'X', 'X', 'O')).toBe(false)
+  })
+
+  it('cannot be forced to lose when it plays X', () => {
+    expect(humanCanForceWin(createBoard(), 'X', 'O', 'X')).toBe(false)
   })
 })
 
-function humanCanForceWin(board: Board, currentMark: Mark): boolean {
+function humanCanForceWin(
+  board: Board,
+  currentMark: Mark,
+  humanMark: Mark,
+  computerMark: Mark
+): boolean {
   const result = getGameResult(board)
 
   if (result.status === 'won') {
-    return result.winner === 'X'
+    return result.winner === humanMark
   }
 
   if (result.status === 'draw') {
     return false
   }
 
-  if (currentMark === 'O') {
-    const move = chooseHardMove(board, 'O', 'X')
-    const nextBoard = move === null ? null : placeMark(board, move, 'O')
-    return nextBoard ? humanCanForceWin(nextBoard, 'X') : false
+  if (currentMark === computerMark) {
+    const move = chooseHardMove(board, computerMark, humanMark)
+
+    if (move === null) {
+      throw new Error('Hard mode returned no move for a playable board')
+    }
+
+    const nextBoard = placeMark(board, move, computerMark)
+
+    if (!nextBoard) {
+      throw new Error(`Hard mode returned illegal move ${move}`)
+    }
+
+    return humanCanForceWin(nextBoard, humanMark, humanMark, computerMark)
   }
 
   return getLegalMoves(board).some((move) => {
-    const nextBoard = placeMark(board, move, 'X')
-    return nextBoard ? humanCanForceWin(nextBoard, 'O') : false
+    const nextBoard = placeMark(board, move, humanMark)
+
+    if (!nextBoard) {
+      throw new Error(`Human move ${move} was unexpectedly rejected`)
+    }
+
+    return humanCanForceWin(nextBoard, computerMark, humanMark, computerMark)
   })
 }

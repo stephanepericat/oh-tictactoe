@@ -51,7 +51,7 @@ export function chooseHardMove(
     const nextBoard = placeMark(board, move, computerMark)
 
     if (!nextBoard) {
-      continue
+      throw new Error(`Hard mode selected illegal move ${move}`)
     }
 
     const score = minimax(nextBoard, humanMark, computerMark, humanMark, 1)
@@ -86,9 +86,7 @@ function minimax(
     const nextBoard = placeMark(board, move, currentMark)
 
     if (!nextBoard) {
-      return currentMark === computerMark
-        ? Number.NEGATIVE_INFINITY
-        : Number.POSITIVE_INFINITY
+      throw new Error(`Minimax selected illegal move ${move}`)
     }
 
     const nextMark = currentMark === computerMark ? humanMark : computerMark

@@ -36,7 +36,7 @@ describe('useTicTacToe', () => {
     expect(game.board.value[1]).toBeNull()
     expect(game.phase.value).toBe('computer-turn')
 
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
 
     expect(game.board.value[4]).toBe('O')
     expect(game.phase.value).toBe('human-turn')
@@ -67,7 +67,7 @@ describe('useTicTacToe', () => {
 
     game.newRound()
     game.playCell(0)
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
 
     expect(game.roundDifficulty.value).toBe('easy')
     expect(game.difficultyChangePending.value).toBe(false)
@@ -85,7 +85,7 @@ describe('useTicTacToe', () => {
     expect(game.phase.value).toBe('computer-turn')
     expect(game.board.value).toEqual(Array(9).fill(null))
 
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
 
     expect(game.board.value[4]).toBe('X')
     expect(game.phase.value).toBe('human-turn')
@@ -114,11 +114,11 @@ describe('useTicTacToe', () => {
 
     game.setNextDifficulty('easy')
     game.setHumanMark('O')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
 
     for (const move of [4, 2]) {
       game.playCell(move)
-      vi.advanceTimersByTime(260)
+      vi.runOnlyPendingTimers()
     }
 
     game.playCell(6)
@@ -167,7 +167,7 @@ describe('useTicTacToe', () => {
 
     for (const move of [0, 3, 5, 8]) {
       game.playCell(move)
-      vi.advanceTimersByTime(260)
+      vi.runOnlyPendingTimers()
     }
 
     expect(game.result.value.status).toBe('won')
@@ -184,7 +184,7 @@ describe('useTicTacToe', () => {
 
     for (const move of [0, 1, 6, 5, 7]) {
       game.playCell(move)
-      vi.advanceTimersByTime(260)
+      vi.runOnlyPendingTimers()
     }
 
     expect(game.result.value).toEqual({ status: 'draw' })
@@ -228,9 +228,9 @@ describe('useTicTacToe', () => {
     game.setNextDifficulty('easy')
     game.newRound()
     game.playCell(0)
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     game.playCell(3)
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     game.playCell(6)
   }
 })

@@ -51,5 +51,6 @@ export function placeMark(board: Board, index: number, mark: Mark): Board | null
     return null
   }
 
+  // Array.prototype.with preserves the tuple's runtime length, but TypeScript widens it to Cell[].
   return board.with(index, mark) as unknown as Board
 }

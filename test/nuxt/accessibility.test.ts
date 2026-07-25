@@ -86,7 +86,7 @@ describe('game accessibility', () => {
       expect(button.attributes('disabled')).toBeUndefined()
     }
 
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
 
     expect(status.text()).toContain('Your move, human.')
@@ -101,7 +101,19 @@ describe('game accessibility', () => {
     const firstElement = firstCell.element as HTMLElement
 
     firstElement.focus()
+    await firstCell.trigger('keydown', { key: 'ArrowLeft' })
+    await firstCell.trigger('keydown', { key: 'ArrowUp' })
+    await nextTick()
+
+    expect(document.activeElement?.getAttribute('aria-label')).toBe('Row 1, column 1, empty')
+
     await firstCell.trigger('keydown', { key: 'End' })
+    await nextTick()
+
+    expect(document.activeElement?.getAttribute('aria-label')).toBe('Row 3, column 3, empty')
+
+    await cell(8).trigger('keydown', { key: 'ArrowRight' })
+    await cell(8).trigger('keydown', { key: 'ArrowDown' })
     await nextTick()
 
     expect(document.activeElement?.getAttribute('aria-label')).toBe('Row 3, column 3, empty')
@@ -112,6 +124,15 @@ describe('game accessibility', () => {
     await nextTick()
 
     expect(document.activeElement?.getAttribute('aria-label')).toBe('Row 2, column 1, empty')
+
+    await cell(3).trigger('keydown', { key: 'ArrowUp' })
+    await nextTick()
+    await cell(0).trigger('keydown', { key: 'ArrowRight' })
+    await nextTick()
+    await cell(1).trigger('keydown', { key: 'ArrowLeft' })
+    await nextTick()
+
+    expect(document.activeElement?.getAttribute('aria-label')).toBe('Row 1, column 1, empty')
     expect(wrapper.findAll('[role="gridcell"] button[tabindex="0"]')).toHaveLength(1)
   })
 

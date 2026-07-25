@@ -3,6 +3,7 @@ import type { VueWrapper } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import GameShell from '../../app/components/game/GameShell.vue'
+import GameStatus from '../../app/components/game/GameStatus.vue'
 
 describe('single-player game', () => {
   let wrapper: VueWrapper | undefined
@@ -46,7 +47,7 @@ describe('single-player game', () => {
     expect(cell(1).attributes('aria-disabled')).toBe('true')
     expect(wrapper.text()).toContain('CPU TURN')
 
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
 
     expect(cell(4).attributes('data-mark')).toBe('O')
@@ -91,7 +92,7 @@ describe('single-player game', () => {
     expect(wrapper.text()).toContain('Round 02')
     expect(wrapper.text()).toContain('CPU TURN')
 
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
 
     expect(cell(4).attributes('data-mark')).toBe('X')
@@ -124,7 +125,7 @@ describe('single-player game', () => {
 
     firstElement.focus()
     await firstCell.trigger('click')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
     await firstCell.trigger('keydown', { key: 'ArrowRight' })
     await nextTick()
@@ -142,10 +143,10 @@ describe('single-player game', () => {
     vi.useFakeTimers()
 
     await cell(0).trigger('click')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
     await cell(3).trigger('click')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
     await cell(6).trigger('click')
 
@@ -170,10 +171,10 @@ describe('single-player game', () => {
     vi.useFakeTimers()
 
     await cell(0).trigger('click')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
     await cell(3).trigger('click')
-    vi.advanceTimersByTime(260)
+    vi.runOnlyPendingTimers()
     await nextTick()
     await cell(6).trigger('click')
     await buttonNamed('Reset score').trigger('click')
@@ -181,6 +182,47 @@ describe('single-player game', () => {
     expect(wrapper.get('[aria-label="You, 0 wins"]').text()).toBe('00')
     expect(buttonNamed('Reset score').attributes('disabled')).toBeDefined()
     expect(wrapper.text()).toContain('You found the line.')
+  })
+
+  it.each([
+    {
+      name: 'human win',
+      result: { status: 'won', winner: 'X', line: [0, 1, 2] } as const,
+      humanMark: 'X' as const,
+      label: 'LINE FOUND',
+      color: 'success'
+    },
+    {
+      name: 'computer win',
+      result: { status: 'won', winner: 'O', line: [0, 1, 2] } as const,
+      humanMark: 'X' as const,
+      label: 'CPU WINS',
+      color: 'primary'
+    },
+    {
+      name: 'draw',
+      result: { status: 'draw' } as const,
+      humanMark: 'X' as const,
+      label: 'DRAW',
+      color: 'neutral'
+    }
+  ])('renders the $name outcome badge', async ({ result, humanMark, label, color }) => {
+    wrapper = await mountSuspended(GameStatus, {
+      props: {
+        roundNumber: 1,
+        difficulty: 'hard',
+        humanMark,
+        phase: 'finished',
+        result,
+        title: label,
+        detail: 'Round complete.'
+      }
+    })
+
+    const badge = wrapper.findComponent({ name: 'UBadge' })
+
+    expect(badge.text()).toContain(label)
+    expect(badge.props('color')).toBe(color)
   })
 
   async function mountGame(): Promise<VueWrapper> {

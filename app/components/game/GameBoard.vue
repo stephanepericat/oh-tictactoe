@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick, shallowRef, useTemplateRef } from 'vue'
-import type { Board, GamePhase, Mark, WinningLine } from '#shared/types/tic-tac-toe'
+import type { Board, BoardIndex, GamePhase, Mark, WinningLine } from '#shared/types/tic-tac-toe'
 
 interface Props {
   board: Board
@@ -23,7 +23,7 @@ function isUnavailable(index: number): boolean {
   return props.phase !== 'human-turn' || props.board[index] !== null
 }
 
-function isWinning(index: number): boolean {
+function isWinning(index: BoardIndex): boolean {
   return props.winningLine?.includes(index) ?? false
 }
 
