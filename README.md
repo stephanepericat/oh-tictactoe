@@ -1,64 +1,60 @@
-# Nuxt Starter Template
+# Oh! Tic-Tac-Toe
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+Oh! Tic-Tac-Toe is a single-player Nuxt 4 game built with Nuxt UI and Tailwind CSS. Play as X or O against a quick Easy opponent or an unbeatable Hard opponent powered by local minimax.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+The game includes a session scoreboard, responsive light and dark themes, complete keyboard controls, reduced-motion support, and screen-reader-friendly game status. See [FEATURES.md](FEATURES.md) for the complete feature list, current limitations, and multiplayer work deferred from the original two-hour plan.
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+## Requirements
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png" width="830" height="466">
-  </picture>
-</a>
-
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
-
-## Quick Start
-
-```bash [Terminal]
-npm create nuxt@latest -- -t ui
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
+- Node.js
+- pnpm 11.13.1
 
 ## Setup
 
-Make sure to install the dependencies:
+Install the dependencies from the project root:
 
 ```bash
 pnpm install
 ```
 
-## Development Server
+The game does not require environment variables. You can copy the example file if you want a local `.env` ready for future configuration:
 
-Start the development server on `http://localhost:3000`:
+```bash
+cp .env.example .env
+```
+
+## Development
+
+Start the Nuxt development server:
 
 ```bash
 pnpm dev
 ```
 
-## Production
+Open [http://localhost:3000](http://localhost:3000) and select an empty square to play. Hard mode is active by default, X opens every round, and selecting Easy schedules that difficulty for the next round.
 
-Build the application for production:
+## Quality checks
+
+Run the automated test suite:
 
 ```bash
+pnpm test:run
+```
+
+Run the remaining project checks:
+
+```bash
+pnpm typecheck
+pnpm lint
 pnpm build
 ```
 
-Locally preview production build:
+## Production
+
+Preview a completed production build:
 
 ```bash
 pnpm preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-## Renovate integration
-
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+The preview server prints its local URL when it starts.
