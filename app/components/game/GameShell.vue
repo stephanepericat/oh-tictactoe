@@ -25,6 +25,7 @@ const game = useTicTacToe()
           <GameBoard
             :board="game.board.value"
             :phase="game.phase.value"
+            :human-mark="game.roundHumanMark.value"
             :winning-line="game.winningLine.value"
             @select="game.playCell"
           />
@@ -54,6 +55,7 @@ const game = useTicTacToe()
           :next-difficulty="game.nextDifficulty.value"
           :difficulty-change-pending="game.difficultyChangePending.value"
           :human-mark="game.roundHumanMark.value"
+          :round-finished="game.phase.value === 'finished'"
           @difficulty="game.setNextDifficulty"
           @mark="game.setHumanMark"
           @new-round="game.newRound"

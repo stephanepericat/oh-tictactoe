@@ -5,6 +5,7 @@ import type { Mark } from '#shared/types/tic-tac-toe'
 interface Props {
   index: number
   mark: Mark | null
+  previewMark: Mark
   unavailable: boolean
   winning: boolean
   tabIndex: number
@@ -58,7 +59,8 @@ function selectCell(): void {
       <span
         v-if="mark"
         aria-hidden="true"
-        class="select-none font-serif text-[clamp(3.5rem,11vw,6.5rem)] leading-none tracking-[-0.08em]"
+        data-placed-mark
+        class="game-mark select-none font-serif text-[clamp(3.5rem,11vw,6.5rem)] leading-none tracking-[-0.08em]"
         :class="mark === 'X' ? 'text-[var(--game-ink)]' : 'text-[var(--game-accent)]'"
       >
         {{ mark }}
@@ -66,13 +68,60 @@ function selectCell(): void {
       <span
         v-else-if="!unavailable"
         aria-hidden="true"
-        class="size-2 rounded-full bg-[var(--game-border)] opacity-0 transition-opacity duration-150 group-hover:opacity-100 motion-reduce:transition-none"
-      />
+        :data-preview-mark="previewMark"
+        class="select-none font-serif text-[clamp(3.5rem,11vw,6.5rem)] leading-none tracking-[-0.08em] opacity-0 transition-[opacity,transform] duration-150 ease-out group-hover:scale-[0.98] group-hover:opacity-15 group-focus-visible:scale-[0.98] group-focus-visible:opacity-15 motion-reduce:transition-none"
+        :class="previewMark === 'X' ? 'text-[var(--game-ink)]' : 'text-[var(--game-accent)]'"
+      >
+        {{ previewMark }}
+      </span>
       <span
         v-if="winning"
-        class="absolute inset-x-5 bottom-3 h-0.5 bg-[var(--game-accent)]"
+        data-winning-line
+        class="game-winning-line absolute inset-x-5 bottom-3 h-0.5 bg-[var(--game-accent)]"
         aria-hidden="true"
       />
     </button>
   </div>
 </template>
+
+<style scoped>
+.game-mark {
+  animation: game-mark-enter 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.game-winning-line {
+  transform-origin: left center;
+  animation: game-winning-line-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes game-mark-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes game-winning-line-enter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-mark,
+  .game-winning-line {
+    animation: none;
+  }
+}
+</style>

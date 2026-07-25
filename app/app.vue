@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const title = 'Oh! Tic-Tac-Toe'
 const description = 'A quick, clever game of tic-tac-toe against an Easy or unbeatable Hard opponent.'
+const colorMode = useColorMode()
+const themeColor = computed(() => (
+  colorMode.value === 'dark' ? '#1d1e1a' : '#f7f3e8'
+))
 
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'theme-color', content: '#f7f3e8' }
+    { name: 'theme-color', content: themeColor }
   ],
   link: [
     { rel: 'icon', href: '/favicon.ico' }
@@ -41,6 +45,13 @@ useSeoMeta({
       </template>
 
       <template #right>
+        <UColorModeButton
+          color="neutral"
+          variant="ghost"
+          size="lg"
+          class="rounded-md text-[var(--game-text-secondary)] hover:bg-[var(--game-surface-strong)] hover:text-[var(--game-ink)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--game-accent)]"
+        />
+
         <UBadge
           color="neutral"
           variant="soft"

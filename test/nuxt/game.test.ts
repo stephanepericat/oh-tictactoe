@@ -26,6 +26,7 @@ describe('single-player game', () => {
     expect(wrapper.text()).toContain('You are X')
     expect(wrapper.text()).toContain('Your move, human.')
     expect(wrapper.get('[aria-label="Your mark"] [aria-pressed="true"]').text()).toBe('X')
+    expect(wrapper.findAll('[data-preview-mark="X"]')).toHaveLength(9)
     expect(wrapper.get('[aria-label="You, 0 wins"]').text()).toBe('00')
     expect(wrapper.get('[aria-label="CPU, 0 wins"]').text()).toBe('00')
     expect(wrapper.get('[aria-label="Draws, 0 draws"]').text()).toBe('00')
@@ -40,6 +41,7 @@ describe('single-player game', () => {
     await cell(1).trigger('click')
 
     expect(cell(0).attributes('data-mark')).toBe('X')
+    expect(cell(0).get('[data-placed-mark]').text()).toBe('X')
     expect(cell(1).attributes('data-mark')).toBeUndefined()
     expect(cell(1).attributes('aria-disabled')).toBe('true')
     expect(wrapper.text()).toContain('CPU TURN')
@@ -94,6 +96,7 @@ describe('single-player game', () => {
 
     expect(cell(4).attributes('data-mark')).toBe('X')
     expect(wrapper.text()).toContain('YOUR TURN')
+    expect(wrapper.findAll('[data-preview-mark="O"]')).toHaveLength(8)
 
     await cell(0).trigger('click')
 
@@ -149,8 +152,10 @@ describe('single-player game', () => {
     expect(wrapper.text()).toContain('You found the line.')
     expect(wrapper.text()).toContain('LINE FOUND')
     expect(wrapper.findAll('[data-winning="true"]')).toHaveLength(3)
+    expect(wrapper.findAll('[data-winning-line]')).toHaveLength(3)
     expect(cell(8).attributes('aria-disabled')).toBe('true')
     expect(wrapper.get('[aria-label="You, 1 win"]').text()).toBe('01')
+    expect(buttonNamed('Run it back').exists()).toBe(true)
   })
 
   it('resets the visible session score', async () => {

@@ -6,6 +6,7 @@ interface Props {
   nextDifficulty: Difficulty
   difficultyChangePending: boolean
   humanMark: Mark
+  roundFinished: boolean
 }
 
 defineProps<Props>()
@@ -150,7 +151,7 @@ const marks: readonly Mark[] = ['X', 'O']
       class="mt-7 min-h-14 justify-center rounded-[10px] bg-[var(--game-accent-strong)] text-base font-semibold text-[var(--game-paper)] hover:bg-[var(--game-accent-deep)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[var(--game-ink)]"
       @click="emit('newRound')"
     >
-      New round
+      {{ roundFinished ? 'Run it back' : 'New round' }}
     </UButton>
   </div>
 </template>
