@@ -1,0 +1,3343 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Ekqis",
+      "x": 0,
+      "y": 0,
+      "name": "Component Library",
+      "clip": true,
+      "width": 1240,
+      "height": 210,
+      "fill": "$background",
+      "cornerRadius": "$radius-lg",
+      "stroke": "$border",
+      "strokeWidth": 1,
+      "gap": "$space-6",
+      "padding": "$space-6",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "hdyiN",
+          "name": "Component/Button Primary",
+          "reusable": true,
+          "height": 44,
+          "fill": "$accent",
+          "cornerRadius": "$radius-md",
+          "gap": "$space-2",
+          "padding": [
+            0,
+            "$space-4"
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "inxQ5",
+              "name": "Label",
+              "fill": "$surface",
+              "content": "Primary action",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "650"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PQao0",
+          "name": "Component/Button Secondary",
+          "reusable": true,
+          "height": 44,
+          "fill": "$surface",
+          "cornerRadius": "$radius-md",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "gap": "$space-2",
+          "padding": [
+            0,
+            "$space-4"
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "mT1yr",
+              "name": "Label",
+              "fill": "$ink",
+              "content": "Secondary",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aU07x",
+          "name": "Component/Status Chip",
+          "reusable": true,
+          "height": 28,
+          "fill": "$success-soft",
+          "cornerRadius": "$radius-sm",
+          "gap": "$space-2",
+          "padding": [
+            0,
+            "$space-3"
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "jEDJm",
+              "name": "Dot",
+              "fill": "$success",
+              "width": 6,
+              "height": 6
+            },
+            {
+              "type": "text",
+              "id": "HHpnd",
+              "name": "Label",
+              "fill": "$success",
+              "content": "CONNECTED",
+              "fontFamily": "$font-mono",
+              "fontSize": 10,
+              "fontWeight": "600",
+              "letterSpacing": 0.8
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kJFBs",
+          "name": "Component/Game Cell",
+          "reusable": true,
+          "width": 144,
+          "height": 144,
+          "fill": "$surface",
+          "cornerRadius": "$radius-md",
+          "stroke": "$ink",
+          "strokeWidth": 1,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "aor9l",
+              "name": "Mark",
+              "fill": "$ink",
+              "content": "X",
+              "fontFamily": "$font-heading",
+              "fontSize": 64,
+              "fontWeight": "650"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "A3pzmF",
+          "name": "Component/Room Code Input",
+          "reusable": true,
+          "width": 244,
+          "height": 48,
+          "fill": "$surface",
+          "cornerRadius": "$radius-md",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "padding": [
+            0,
+            "$space-4"
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "NwwAC",
+              "name": "Value",
+              "fill": "$ink",
+              "content": "4F2A-9C",
+              "fontFamily": "$font-mono",
+              "fontSize": 15,
+              "fontWeight": "600",
+              "letterSpacing": 1.2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NgeGq",
+          "name": "Component/Segmented Control",
+          "reusable": true,
+          "height": 40,
+          "fill": "$surface-strong",
+          "cornerRadius": "$radius-md",
+          "gap": "$space-1",
+          "padding": "$space-1",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rKhRw",
+              "name": "Active Option",
+              "height": 32,
+              "fill": "$ink",
+              "cornerRadius": "$radius-sm",
+              "padding": [
+                0,
+                "$space-3"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WQeUZ",
+                  "name": "Active Label",
+                  "fill": "$surface",
+                  "content": "Option A",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XoYuR",
+              "name": "Inactive Option",
+              "height": 32,
+              "cornerRadius": "$radius-sm",
+              "padding": [
+                0,
+                "$space-3"
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kftXP",
+                  "name": "Inactive Label",
+                  "fill": "$text-secondary",
+                  "content": "Option B",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "550"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "lF7jf",
+      "x": 0,
+      "y": 330,
+      "name": "Screen/Single Player Hard",
+      "clip": true,
+      "width": 1440,
+      "height": 1024,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Y6BYR",
+          "name": "App Header",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            "$space-12"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "nBT7h",
+              "name": "Brand",
+              "gap": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BPcbk",
+                  "name": "Brand Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$ink",
+                  "cornerRadius": "$radius-sm",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gdMjt",
+                      "name": "Brand Mark Text",
+                      "fill": "$surface",
+                      "content": "OH!",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.4
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "TxCf2",
+                  "name": "Brand Name",
+                  "fill": "$ink",
+                  "content": "TIC-TAC-TOE",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "650",
+                  "letterSpacing": 0.2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fRbxX",
+              "name": "Header Actions",
+              "gap": "$space-4",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "Ain99",
+                  "type": "ref",
+                  "ref": "NgeGq",
+                  "name": "Mode Switch",
+                  "descendants": {
+                    "WQeUZ": {
+                      "content": "Single player"
+                    },
+                    "kftXP": {
+                      "content": "Online"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "A5kps",
+                  "name": "Keyboard Help",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "cSbFO",
+                      "name": "Help Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "keyboard",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "W5JqzG",
+          "name": "Single Player Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 72,
+          "padding": [
+            48,
+            64,
+            52,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Z1xmq",
+              "name": "Game Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GURin",
+                  "name": "Game Stage",
+                  "width": 560,
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZwMZ7",
+                      "name": "Round Metadata",
+                      "fill": "$text-muted",
+                      "content": "ROUND 06  /  HARD MODE  /  YOU ARE X",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "GzV1k",
+                      "name": "Game Title",
+                      "fill": "$ink",
+                      "content": "Your move, human.",
+                      "lineHeight": 1.02,
+                      "fontFamily": "$font-heading",
+                      "fontSize": 48,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KI3FY",
+                      "name": "Game Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The machine considered every future. One of them is still yours.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yMfiP",
+                      "name": "Turn Status Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "D9hgM3",
+                          "type": "ref",
+                          "ref": "aU07x",
+                          "name": "Your Turn Status",
+                          "fill": "$accent-soft",
+                          "descendants": {
+                            "jEDJm": {
+                              "fill": "$accent"
+                            },
+                            "HHpnd": {
+                              "content": "YOUR TURN",
+                              "fill": "$accent"
+                            }
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "HsvJx",
+                          "name": "Tactical Hint",
+                          "fill": "$text-muted",
+                          "content": "Find the only move.",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XowC5",
+                      "name": "Game Board",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        8,
+                        44
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "sHShY",
+                          "name": "Board Row 1",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "CRmgn",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R1C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "X",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "GsYqI",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R1C2",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "S3exQs",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R1C3",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$accent-soft",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "O",
+                                  "fill": "$accent"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PIL4T",
+                          "name": "Board Row 2",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "VPBLY",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R2C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "a1VmOn",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R2C2",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "O",
+                                  "fill": "$accent"
+                                }
+                              }
+                            },
+                            {
+                              "id": "Eky3n",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R2C3",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "y92CV",
+                          "name": "Board Row 3",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "nMTC7",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "OgGEV",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C2",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "l2430X",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C3",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "X",
+                                  "fill": "$ink"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JUYBP",
+                      "name": "Board Footer",
+                      "width": "fill_container",
+                      "padding": [
+                        0,
+                        4
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "L696j",
+                          "name": "Keyboard Hint",
+                          "gap": "$space-2",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "td4fB",
+                              "name": "Keyboard Hint Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "move",
+                              "library": "lucide",
+                              "fill": "$text-muted"
+                            },
+                            {
+                              "type": "text",
+                              "id": "lDVYA",
+                              "name": "Keyboard Hint Text",
+                              "fill": "$text-muted",
+                              "content": "ARROWS TO MOVE  ·  ENTER TO PLACE",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "550",
+                              "letterSpacing": 0.7
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "QrBoM",
+                          "name": "Board Coordinates",
+                          "fill": "$text-muted",
+                          "content": "3 × 3  /  BEST OF ∞",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "550",
+                          "letterSpacing": 0.7
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cbjtl",
+              "name": "Game Instrument Panel",
+              "width": 336,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-6",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Bloa9",
+                  "name": "Session Label",
+                  "fill": "$text-muted",
+                  "content": "SESSION SCORE",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "frame",
+                  "id": "Y5VsV8",
+                  "name": "Scoreboard",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1,
+                    "bottom": 1
+                  },
+                  "gap": "$space-4",
+                  "padding": [
+                    "$space-4",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "KgjkG",
+                      "name": "Score YOU",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Z4lg7",
+                          "name": "YOU Label",
+                          "fill": "$text-muted",
+                          "content": "YOU",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "w8WOa",
+                          "name": "YOU Value",
+                          "fill": "$accent",
+                          "content": "03",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NzqLm",
+                      "name": "Score CPU",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fMQCq",
+                          "name": "CPU Label",
+                          "fill": "$text-muted",
+                          "content": "CPU",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "UcT6h",
+                          "name": "CPU Value",
+                          "fill": "$ink",
+                          "content": "02",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gyYk5",
+                      "name": "Score DRAWS",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "nF5yZ",
+                          "name": "DRAWS Label",
+                          "fill": "$text-muted",
+                          "content": "DRAWS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "R8sIwi",
+                          "name": "DRAWS Value",
+                          "fill": "$ink",
+                          "content": "01",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GxQGa",
+                  "name": "Difficulty Section",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "y3wdck",
+                      "name": "Difficulty Header",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C1a2FK",
+                          "name": "Difficulty Label",
+                          "fill": "$text-muted",
+                          "content": "DIFFICULTY",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "E2Eor",
+                          "name": "Difficulty Note",
+                          "fill": "$text-muted",
+                          "content": "CHANGE NEXT ROUND",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "T6XgHk",
+                      "type": "ref",
+                      "ref": "NgeGq",
+                      "name": "Difficulty Switch",
+                      "width": "fill_container",
+                      "descendants": {
+                        "WQeUZ": {
+                          "content": "Hard"
+                        },
+                        "kftXP": {
+                          "content": "Easy"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A1qvG",
+                  "name": "Opponent Section",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1,
+                    "bottom": 1
+                  },
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "padding": [
+                    "$space-4",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tpBI6",
+                      "name": "Opponent Label",
+                      "fill": "$text-muted",
+                      "content": "OPPONENT",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lfFaQ",
+                      "name": "Opponent Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "UegCt",
+                          "name": "Opponent Identity",
+                          "gap": "$space-2",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "jiUkh",
+                              "name": "Opponent Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "bot",
+                              "library": "lucide",
+                              "fill": "$ink"
+                            },
+                            {
+                              "type": "text",
+                              "id": "i2faTF",
+                              "name": "Opponent Name",
+                              "fill": "$ink",
+                              "content": "minimax()",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "E9AECy",
+                          "name": "Unbeaten Badge",
+                          "height": 24,
+                          "fill": "$surface-strong",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            "$space-2"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "g5fbFm",
+                              "name": "Unbeaten Text",
+                              "fill": "$text-secondary",
+                              "content": "UNBEATEN",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 8,
+                              "fontWeight": "600",
+                              "letterSpacing": 0.7
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TiFBp",
+                  "name": "Strategy Note",
+                  "width": "fill_container",
+                  "fill": "$surface-strong",
+                  "cornerRadius": "$radius-md",
+                  "gap": "$space-3",
+                  "padding": "$space-4",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "tax8C",
+                      "name": "Strategy Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "terminal",
+                      "library": "lucide",
+                      "fill": "$accent"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fw2Ih",
+                      "name": "Strategy Text",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Hard mode explores the full game tree. Your best outcome is still respectable.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wVEGo",
+                  "name": "Round Actions",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "children": [
+                    {
+                      "id": "brDEL",
+                      "type": "ref",
+                      "ref": "hdyiN",
+                      "name": "New Round Button",
+                      "width": "fill_container",
+                      "descendants": {
+                        "inxQ5": {
+                          "content": "New round"
+                        }
+                      }
+                    },
+                    {
+                      "id": "Q3be7",
+                      "type": "ref",
+                      "ref": "PQao0",
+                      "name": "Reset Score Button",
+                      "width": "fill_container",
+                      "descendants": {
+                        "mT1yr": {
+                          "content": "Reset score"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "srGkj",
+      "x": 1560,
+      "y": 330,
+      "name": "Screen/Online Lobby",
+      "clip": true,
+      "width": 1440,
+      "height": 1024,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "gLT5L",
+          "name": "App Header Online",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            "$space-12"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "tcjiw",
+              "name": "Brand",
+              "gap": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kAq9h",
+                  "name": "Brand Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$ink",
+                  "cornerRadius": "$radius-sm",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Lrr9L",
+                      "name": "Brand Mark Text",
+                      "fill": "$surface",
+                      "content": "OH!",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.4
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "c8P8u",
+                  "name": "Brand Name",
+                  "fill": "$ink",
+                  "content": "TIC-TAC-TOE",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "650",
+                  "letterSpacing": 0.2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jw77O",
+              "name": "Header Actions",
+              "gap": "$space-4",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "yQ3QV",
+                  "type": "ref",
+                  "ref": "NgeGq",
+                  "name": "Mode Switch",
+                  "descendants": {
+                    "WQeUZ": {
+                      "content": "Online"
+                    },
+                    "kftXP": {
+                      "content": "Single player"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "GzHmD",
+                  "name": "Keyboard Help",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "mJNOi",
+                      "name": "Help Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "keyboard",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZqGnX",
+          "name": "Online Lobby Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 96,
+          "padding": [
+            72,
+            112
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "i5HnYp",
+              "name": "Lobby Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-8",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GQwd7",
+                  "name": "Lobby Introduction",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kkEiT",
+                      "name": "Lobby Metadata",
+                      "fill": "$text-muted",
+                      "content": "ONLINE PLAY  /  ROOM CODES  /  WEBSOCKET",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ei1Wi",
+                      "name": "Lobby Headline",
+                      "gap": "$space-3",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Jf491",
+                          "name": "Headline Plain",
+                          "fill": "$ink",
+                          "content": "Open a",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 58,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "l0tMkI",
+                          "name": "Headline Highlight",
+                          "fill": "$accent",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            2,
+                            "$space-3",
+                            6,
+                            "$space-3"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "G51mA",
+                              "name": "Headline Highlight Text",
+                              "fill": "$surface",
+                              "content": "socket.",
+                              "lineHeight": 1,
+                              "fontFamily": "$font-heading",
+                              "fontSize": 58,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "USKkb",
+                      "name": "Lobby Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Create a private room or enter a code from a friend. No account, no queue, no mysterious ranking system.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HFnB3",
+                  "name": "Room Entry",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1,
+                    "bottom": 1
+                  },
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "padding": [
+                    "$space-6",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "id": "i3EyAA",
+                      "type": "ref",
+                      "ref": "NgeGq",
+                      "name": "Room Entry Mode",
+                      "descendants": {
+                        "WQeUZ": {
+                          "content": "Join room"
+                        },
+                        "kftXP": {
+                          "content": "Create room"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xMQZH",
+                      "name": "Display Name Field",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-2",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MWdB6",
+                          "name": "Display Name Label",
+                          "fill": "$text-muted",
+                          "content": "DISPLAY NAME",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "id": "sQOzb",
+                          "type": "ref",
+                          "ref": "A3pzmF",
+                          "name": "Display Name Input",
+                          "width": "fill_container",
+                          "descendants": {
+                            "NwwAC": {
+                              "content": "grace_hopper",
+                              "letterSpacing": 0.4
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "U5EV9",
+                      "name": "Room Code Field",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-2",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "v2cwR",
+                          "name": "Room Code Label",
+                          "fill": "$text-muted",
+                          "content": "ROOM CODE",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gCgsF",
+                          "name": "Room Code Row",
+                          "width": "fill_container",
+                          "gap": "$space-3",
+                          "children": [
+                            {
+                              "id": "B1Q8xu",
+                              "type": "ref",
+                              "ref": "A3pzmF",
+                              "name": "Room Code Input",
+                              "width": "fill_container",
+                              "descendants": {
+                                "NwwAC": {
+                                  "content": "4F2A-9C"
+                                }
+                              }
+                            },
+                            {
+                              "id": "IdYvb",
+                              "type": "ref",
+                              "ref": "hdyiN",
+                              "name": "Join Room Button",
+                              "descendants": {
+                                "inxQ5": {
+                                  "content": "Join game"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "UpGvk",
+                      "type": "ref",
+                      "ref": "PQao0",
+                      "name": "Create Room Button",
+                      "width": "fill_container",
+                      "descendants": {
+                        "mT1yr": {
+                          "content": "Create a new room instead"
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ervvq",
+                      "name": "Lobby Footnote",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "ROOMS EXPIRE WHEN EVERYONE LEAVES  ·  CODES ARE CASE-INSENSITIVE",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 9,
+                      "fontWeight": "550",
+                      "letterSpacing": 0.6
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z0n6U",
+              "name": "Lobby Connection Diagram",
+              "width": 420,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-6",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "l2QDpk",
+                  "name": "Connection Plan Label",
+                  "fill": "$text-muted",
+                  "content": "CONNECTION PLAN",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "frame",
+                  "id": "v3Xo3f",
+                  "name": "Connection Flow",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PfrLQ",
+                      "name": "Connection Node You",
+                      "width": "fill_container",
+                      "height": 76,
+                      "fill": "$surface",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$ink",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        "$space-4"
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uEZQB",
+                          "name": "You Identity",
+                          "gap": "$space-3",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "m172Cu",
+                              "name": "You Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "laptop",
+                              "library": "lucide",
+                              "fill": "$ink"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "p3hqG",
+                              "name": "You Text",
+                              "layout": "vertical",
+                              "gap": "$space-1",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "f8XKVM",
+                                  "name": "You Title",
+                                  "fill": "$ink",
+                                  "content": "grace_hopper",
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "o160N",
+                                  "name": "You Caption",
+                                  "fill": "$text-muted",
+                                  "content": "THIS DEVICE",
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 8,
+                                  "fontWeight": "normal",
+                                  "letterSpacing": 0.8
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "x4AWF",
+                          "type": "ref",
+                          "ref": "aU07x",
+                          "name": "You Ready Chip",
+                          "descendants": {
+                            "HHpnd": {
+                              "content": "READY"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WErMi",
+                      "name": "Connector To Room",
+                      "width": "fill_container",
+                      "height": 40,
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ukBIS",
+                          "name": "Connector Arrow One",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-down",
+                          "library": "lucide",
+                          "fill": "$text-muted"
+                        },
+                        {
+                          "type": "text",
+                          "id": "xkW5D",
+                          "name": "Connector Label One",
+                          "fill": "$text-muted",
+                          "content": "wss://room/4F2A-9C",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 8,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "I8l5p",
+                      "name": "Connection Node Room",
+                      "width": "fill_container",
+                      "height": 92,
+                      "fill": "$accent-soft",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$accent",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "padding": "$space-4",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "H7q1eb",
+                          "name": "Room Label",
+                          "fill": "$accent",
+                          "content": "ROOM",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 8,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "cioWr",
+                          "name": "Room Code",
+                          "fill": "$ink",
+                          "content": "4F2A-9C",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 24,
+                          "fontWeight": "650",
+                          "letterSpacing": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "RGpSX",
+                          "name": "Room State",
+                          "fill": "$text-secondary",
+                          "content": "SERVER-AUTHORITATIVE",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 8,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.8
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SrOGR",
+                      "name": "Connector To Friend",
+                      "width": "fill_container",
+                      "height": 40,
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "UOzwn",
+                          "name": "Connector Arrow Two",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-down",
+                          "library": "lucide",
+                          "fill": "$text-muted"
+                        },
+                        {
+                          "type": "text",
+                          "id": "H9Wi5S",
+                          "name": "Connector Label Two",
+                          "fill": "$text-muted",
+                          "content": "WAITING FOR PEER",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 8,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.8
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "i2sgX",
+                      "name": "Connection Node Friend",
+                      "width": "fill_container",
+                      "height": 76,
+                      "fill": "$surface",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$border",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        "$space-4"
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "O93mq",
+                          "name": "Friend Identity",
+                          "gap": "$space-3",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "oFUbn",
+                              "name": "Friend Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "user-round",
+                              "library": "lucide",
+                              "fill": "$text-muted"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "UJzcv",
+                              "name": "Friend Text",
+                              "layout": "vertical",
+                              "gap": "$space-1",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "W59ndF",
+                                  "name": "Friend Title",
+                                  "fill": "$text-secondary",
+                                  "content": "Your friend",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "eXk6P",
+                                  "name": "Friend Caption",
+                                  "fill": "$text-muted",
+                                  "content": "SHARE THE CODE",
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 8,
+                                  "fontWeight": "normal",
+                                  "letterSpacing": 0.8
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QuWWX",
+                          "name": "Waiting Badge",
+                          "height": 28,
+                          "fill": "$surface-strong",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            "$space-3"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "j07pG",
+                              "name": "Waiting Text",
+                              "fill": "$text-secondary",
+                              "content": "WAITING",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "600",
+                              "letterSpacing": 0.8
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "M9Vo4G",
+                  "name": "Protocol Notes",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": [
+                    "$space-4",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "bRUpF",
+                      "name": "Protocol Note 01",
+                      "width": "fill_container",
+                      "gap": "$space-3",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fwoYO",
+                          "name": "Protocol Number 01",
+                          "fill": "$accent",
+                          "content": "01",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fKgEv",
+                          "name": "Protocol Copy 01",
+                          "fill": "$text-secondary",
+                          "content": "Server validates every move",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "v3bf9",
+                      "name": "Protocol Note 02",
+                      "width": "fill_container",
+                      "gap": "$space-3",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "D4IlWt",
+                          "name": "Protocol Number 02",
+                          "fill": "$accent",
+                          "content": "02",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uGPQk",
+                          "name": "Protocol Copy 02",
+                          "fill": "$text-secondary",
+                          "content": "Reconnect grace lasts 15 seconds",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e3PLH",
+                      "name": "Protocol Note 03",
+                      "width": "fill_container",
+                      "gap": "$space-3",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C4UsxI",
+                          "name": "Protocol Number 03",
+                          "fill": "$accent",
+                          "content": "03",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KHczu",
+                          "name": "Protocol Copy 03",
+                          "fill": "$text-secondary",
+                          "content": "Room score survives rematches",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GNtV9",
+      "x": 3120,
+      "y": 330,
+      "name": "Screen/Online Match",
+      "clip": true,
+      "width": 1440,
+      "height": 1024,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "F7kBve",
+          "name": "App Header",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            "$space-12"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Vo2GA",
+              "name": "Brand",
+              "gap": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M1I0B",
+                  "name": "Brand Mark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$ink",
+                  "cornerRadius": "$radius-sm",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vRBGj",
+                      "name": "Brand Mark Text",
+                      "fill": "$surface",
+                      "content": "OH!",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": -0.4
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "oAnlL",
+                  "name": "Brand Name",
+                  "fill": "$ink",
+                  "content": "TIC-TAC-TOE",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "650",
+                  "letterSpacing": 0.2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lMGUS",
+              "name": "Header Actions",
+              "gap": "$space-4",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "X7UX8c",
+                  "type": "ref",
+                  "ref": "NgeGq",
+                  "name": "Mode Switch",
+                  "descendants": {
+                    "WQeUZ": {
+                      "content": "Online"
+                    },
+                    "kftXP": {
+                      "content": "Single player"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "VY2Tb",
+                  "name": "Keyboard Help",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$surface",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "S7CPY",
+                      "name": "Help Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "keyboard",
+                      "library": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "CQaYG",
+          "name": "Single Player Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 72,
+          "padding": [
+            48,
+            64,
+            52,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "lkFOt",
+              "name": "Game Main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GLJ4S",
+                  "name": "Game Stage",
+                  "width": 560,
+                  "layout": "vertical",
+                  "gap": "$space-4",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oBfWl",
+                      "name": "Round Metadata",
+                      "fill": "$text-muted",
+                      "content": "ROOM 4F2A-9C  /  ONLINE  /  YOU ARE X",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "W8d9M",
+                      "name": "Game Title",
+                      "fill": "$ink",
+                      "content": "Ada is thinking.",
+                      "lineHeight": 1.02,
+                      "fontFamily": "$font-heading",
+                      "fontSize": 48,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YNZzM",
+                      "name": "Game Description",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The room is synchronized. Your rival is calculating the polite way to ruin this.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lM0Pu",
+                      "name": "Turn Status Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "i1ITud",
+                          "type": "ref",
+                          "ref": "aU07x",
+                          "fill": "$success-soft",
+                          "name": "Your Turn Status",
+                          "descendants": {
+                            "jEDJm": {
+                              "fill": "$success"
+                            },
+                            "HHpnd": {
+                              "content": "ADA’S TURN",
+                              "fill": "$success"
+                            }
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "sw6wH",
+                          "name": "Tactical Hint",
+                          "fill": "$text-muted",
+                          "content": "LIVE  /  38 MS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "oOxdy",
+                      "name": "Game Board",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        8,
+                        44
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "C9YCfT",
+                          "name": "Board Row 1",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "SdmD3",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R1C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "X",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "JyipQ",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R1C2",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "YnMIY",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "fill": "$surface",
+                              "name": "Cell R1C3",
+                              "width": 150,
+                              "height": 150,
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "O",
+                                  "fill": "$accent"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "d8o0Rc",
+                          "name": "Board Row 2",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "KTsBQ",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R2C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "SNJrM",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "fill": "$surface-strong",
+                              "name": "Cell R2C2",
+                              "width": 150,
+                              "height": 150,
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "X",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "qLyfx",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R2C3",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Q530q",
+                          "name": "Board Row 3",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "id": "Yulsw",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C1",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "O",
+                                  "fill": "$accent"
+                                }
+                              }
+                            },
+                            {
+                              "id": "pDUyR",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C2",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "X",
+                                  "fill": "$ink"
+                                }
+                              }
+                            },
+                            {
+                              "id": "GeHbj",
+                              "type": "ref",
+                              "ref": "kJFBs",
+                              "name": "Cell R3C3",
+                              "width": 150,
+                              "height": 150,
+                              "fill": "$surface",
+                              "descendants": {
+                                "aor9l": {
+                                  "content": "",
+                                  "fill": "$ink"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Wh4fu",
+                      "name": "Board Footer",
+                      "width": "fill_container",
+                      "padding": [
+                        0,
+                        4
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "zECsz",
+                          "name": "Keyboard Hint",
+                          "gap": "$space-2",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "M68kd",
+                              "name": "Keyboard Hint Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "move",
+                              "library": "lucide",
+                              "fill": "$text-muted"
+                            },
+                            {
+                              "type": "text",
+                              "id": "U6asb",
+                              "name": "Keyboard Hint Text",
+                              "fill": "$text-muted",
+                              "content": "ARROWS TO MOVE  ·  ENTER TO PLACE",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "550",
+                              "letterSpacing": 0.7
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "M9nBo",
+                          "name": "Board Coordinates",
+                          "fill": "$text-muted",
+                          "content": "ROOM 4F2A-9C  /  ROUND 04",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "550",
+                          "letterSpacing": 0.7
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lvHkI",
+              "name": "Game Instrument Panel",
+              "width": 336,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-6",
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "lFDR2",
+                  "name": "Session Label",
+                  "fill": "$text-muted",
+                  "content": "ROOM SCORE",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "frame",
+                  "id": "eSYsN",
+                  "name": "Scoreboard",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1,
+                    "bottom": 1
+                  },
+                  "gap": "$space-4",
+                  "padding": [
+                    "$space-4",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Uspzn",
+                      "name": "Score YOU",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XXMJb",
+                          "name": "YOU Label",
+                          "fill": "$text-muted",
+                          "content": "YOU",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "lkB1Q",
+                          "name": "YOU Value",
+                          "fill": "$accent",
+                          "content": "02",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uxRYv",
+                      "name": "Score CPU",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xPBmJ",
+                          "name": "CPU Label",
+                          "fill": "$text-muted",
+                          "content": "ADA",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "jYMb8",
+                          "name": "CPU Value",
+                          "fill": "$ink",
+                          "content": "01",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zz9sX",
+                      "name": "Score DRAWS",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Lnkqm",
+                          "name": "DRAWS Label",
+                          "fill": "$text-muted",
+                          "content": "DRAWS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "jAgD9",
+                          "name": "DRAWS Value",
+                          "fill": "$ink",
+                          "content": "00",
+                          "lineHeight": 1,
+                          "fontFamily": "$font-heading",
+                          "fontSize": 36,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Om41b",
+                  "name": "Connection Section",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZHVH6",
+                      "name": "Connection Header",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "t32Vz",
+                          "name": "Connection Label",
+                          "fill": "$text-muted",
+                          "content": "CONNECTION",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "B8OexN",
+                          "name": "Latency Label",
+                          "fill": "$success",
+                          "content": "38 MS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Js6Da",
+                      "name": "Connection Meter",
+                      "width": "fill_container",
+                      "height": 8,
+                      "gap": "$space-1",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "AkDu6",
+                          "name": "Signal One",
+                          "width": "fill_container",
+                          "height": 8,
+                          "fill": "$success",
+                          "cornerRadius": "$radius-sm"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dbXjQ",
+                          "name": "Signal Two",
+                          "width": "fill_container",
+                          "height": 8,
+                          "fill": "$success",
+                          "cornerRadius": "$radius-sm"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FWRzk",
+                          "name": "Signal Three",
+                          "width": "fill_container",
+                          "height": 8,
+                          "fill": "$success",
+                          "cornerRadius": "$radius-sm"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "RJlSL",
+                          "name": "Signal Four",
+                          "width": "fill_container",
+                          "height": 8,
+                          "fill": "$success-soft",
+                          "cornerRadius": "$radius-sm"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fDAU0",
+                  "name": "Opponent Section",
+                  "width": "fill_container",
+                  "stroke": "$border",
+                  "strokeWidth": {
+                    "top": 1,
+                    "bottom": 1
+                  },
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "padding": [
+                    "$space-4",
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s17jSI",
+                      "name": "Opponent Label",
+                      "fill": "$text-muted",
+                      "content": "OPPONENT",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "f3Ju73",
+                      "name": "Opponent Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ehLyP",
+                          "name": "Opponent Identity",
+                          "gap": "$space-2",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "F5QeUk",
+                              "name": "Opponent Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "radio",
+                              "library": "lucide",
+                              "fill": "$ink"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QWMhc",
+                              "name": "Opponent Name",
+                              "fill": "$ink",
+                              "content": "ada_lovelace",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 15,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QeWTh",
+                          "name": "Unbeaten Badge",
+                          "height": 24,
+                          "fill": "$success-soft",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            "$space-2"
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "htgeA",
+                              "name": "Unbeaten Text",
+                              "fill": "$success",
+                              "content": "LIVE",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 8,
+                              "fontWeight": "600",
+                              "letterSpacing": 0.7
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NDFEJ",
+                  "name": "Strategy Note",
+                  "width": "fill_container",
+                  "fill": "$surface-strong",
+                  "cornerRadius": "$radius-md",
+                  "gap": "$space-3",
+                  "padding": "$space-4",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "bsQ2n",
+                      "name": "Strategy Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "server",
+                      "library": "lucide",
+                      "fill": "$accent"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ySBPg",
+                      "name": "Strategy Text",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Moves are validated by the room server and broadcast to both boards.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Ns9iM",
+                  "name": "Round Actions",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-3",
+                  "children": [
+                    {
+                      "id": "GWpT0",
+                      "type": "ref",
+                      "ref": "hdyiN",
+                      "name": "New Round Button",
+                      "width": "fill_container",
+                      "descendants": {
+                        "inxQ5": {
+                          "content": "Offer rematch"
+                        }
+                      }
+                    },
+                    {
+                      "id": "m0x5DO",
+                      "type": "ref",
+                      "ref": "PQao0",
+                      "name": "Reset Score Button",
+                      "width": "fill_container",
+                      "descendants": {
+                        "mT1yr": {
+                          "content": "Leave room"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "O9DKoj",
+      "x": 4680,
+      "y": 330,
+      "name": "Screen/Mobile Single Player",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "$background",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "gJSGy",
+          "name": "Mobile Header",
+          "width": "fill_container",
+          "height": 56,
+          "stroke": "$border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            "$space-4"
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "eihyP",
+              "name": "Mobile Brand",
+              "gap": "$space-2",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "k60M4",
+                  "name": "Mobile Brand Mark",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "$ink",
+                  "cornerRadius": "$radius-sm",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "c6wLm",
+                      "name": "Mobile Brand Mark Text",
+                      "fill": "$surface",
+                      "content": "OH!",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "s9ic3p",
+                  "name": "Mobile Brand Name",
+                  "fill": "$ink",
+                  "content": "TIC-TAC-TOE",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 17,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "id": "pEqtV",
+              "type": "ref",
+              "ref": "aU07x",
+              "name": "Mobile Local Status",
+              "fill": "$surface-strong",
+              "descendants": {
+                "jEDJm": {
+                  "fill": "$accent"
+                },
+                "HHpnd": {
+                  "content": "LOCAL",
+                  "fill": "$text-secondary"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T9Tu7A",
+          "name": "Mobile Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-3",
+          "padding": [
+            20,
+            16,
+            24,
+            16
+          ],
+          "children": [
+            {
+              "id": "hSaZe",
+              "type": "ref",
+              "ref": "NgeGq",
+              "name": "Mobile Mode Switch",
+              "width": "fill_container",
+              "descendants": {
+                "rKhRw": {
+                  "width": "fill_container"
+                },
+                "WQeUZ": {
+                  "content": "Single player"
+                },
+                "XoYuR": {
+                  "width": "fill_container"
+                },
+                "kftXP": {
+                  "content": "Online"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "WxvSu",
+              "name": "Mobile Intro",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-1",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GSJ8R",
+                  "name": "Mobile Metadata",
+                  "fill": "$text-muted",
+                  "content": "ROUND 06  /  HARD  /  YOU ARE X",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 9,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.8
+                },
+                {
+                  "type": "text",
+                  "id": "yPRxq",
+                  "name": "Mobile Title",
+                  "fill": "$ink",
+                  "content": "Your move.",
+                  "lineHeight": 1,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 34,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lyhzX",
+              "name": "Mobile Turn Row",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "NaiPW",
+                  "type": "ref",
+                  "ref": "aU07x",
+                  "name": "Mobile Your Turn",
+                  "fill": "$accent-soft",
+                  "descendants": {
+                    "jEDJm": {
+                      "fill": "$accent"
+                    },
+                    "HHpnd": {
+                      "content": "YOUR TURN",
+                      "fill": "$accent"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "c56r2",
+                  "name": "Mobile Hint",
+                  "fill": "$text-muted",
+                  "content": "Find the only move.",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CZeMa",
+              "name": "Mobile Board",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EddKq",
+                  "name": "Mobile Board Row 1",
+                  "gap": "$space-2",
+                  "children": [
+                    {
+                      "id": "HwRU0",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R1C1",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "X",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    },
+                    {
+                      "id": "s0wtqM",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R1C2",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    },
+                    {
+                      "id": "IvBww",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R1C3",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$accent-soft",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "O",
+                          "fontSize": 46,
+                          "fill": "$accent"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kx1TI",
+                  "name": "Mobile Board Row 2",
+                  "gap": "$space-2",
+                  "children": [
+                    {
+                      "id": "j0eEJz",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R2C1",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    },
+                    {
+                      "id": "FiLXE",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R2C2",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "O",
+                          "fontSize": 46,
+                          "fill": "$accent"
+                        }
+                      }
+                    },
+                    {
+                      "id": "h6okeP",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R2C3",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d14tOj",
+                  "name": "Mobile Board Row 3",
+                  "gap": "$space-2",
+                  "children": [
+                    {
+                      "id": "qEfAs",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R3C1",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    },
+                    {
+                      "id": "TAqVz",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R3C2",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    },
+                    {
+                      "id": "xVzwW",
+                      "type": "ref",
+                      "ref": "kJFBs",
+                      "name": "Mobile Cell R3C3",
+                      "width": 104,
+                      "height": 104,
+                      "fill": "$surface",
+                      "descendants": {
+                        "aor9l": {
+                          "content": "X",
+                          "fontSize": 46,
+                          "fill": "$ink"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vumZh",
+              "name": "Mobile Scoreboard",
+              "width": "fill_container",
+              "stroke": "$border",
+              "strokeWidth": {
+                "top": 1,
+                "bottom": 1
+              },
+              "padding": [
+                "$space-3",
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vb86t",
+                  "name": "Mobile Score YOU",
+                  "width": "fill_container",
+                  "gap": "$space-2",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IRHBM",
+                      "name": "Mobile YOU Label",
+                      "fill": "$text-muted",
+                      "content": "YOU",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 8,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "hAPRj",
+                      "name": "Mobile YOU Value",
+                      "fill": "$accent",
+                      "content": "03",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FIa7z",
+                  "name": "Mobile Score CPU",
+                  "width": "fill_container",
+                  "gap": "$space-2",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Z3DJwA",
+                      "name": "Mobile CPU Label",
+                      "fill": "$text-muted",
+                      "content": "CPU",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 8,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "efoRk",
+                      "name": "Mobile CPU Value",
+                      "fill": "$ink",
+                      "content": "02",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZweZD",
+                  "name": "Mobile Score DRAWS",
+                  "width": "fill_container",
+                  "gap": "$space-2",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pFWiq",
+                      "name": "Mobile DRAWS Label",
+                      "fill": "$text-muted",
+                      "content": "DRAWS",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 8,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "Vahiu",
+                      "name": "Mobile DRAWS Value",
+                      "fill": "$ink",
+                      "content": "01",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Fe1Bi",
+              "name": "Mobile Controls",
+              "width": "fill_container",
+              "gap": "$space-3",
+              "children": [
+                {
+                  "id": "d8eUMK",
+                  "type": "ref",
+                  "ref": "NgeGq",
+                  "name": "Mobile Difficulty",
+                  "descendants": {
+                    "WQeUZ": {
+                      "content": "Hard"
+                    },
+                    "kftXP": {
+                      "content": "Easy"
+                    }
+                  }
+                },
+                {
+                  "id": "Ihtek",
+                  "type": "ref",
+                  "ref": "hdyiN",
+                  "name": "Mobile New Round",
+                  "width": "fill_container",
+                  "descendants": {
+                    "inxQ5": {
+                      "content": "New round"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "background": {
+      "type": "color",
+      "value": "#F7F3E8"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#FCFAF4"
+    },
+    "surface-strong": {
+      "type": "color",
+      "value": "#EEE9DB"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#20231F"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#62675F"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#8B8E84"
+    },
+    "border": {
+      "type": "color",
+      "value": "#C9C5B9"
+    },
+    "accent": {
+      "type": "color",
+      "value": "#DD5A3D"
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": "#F5D8CF"
+    },
+    "success": {
+      "type": "color",
+      "value": "#2F7658"
+    },
+    "success-soft": {
+      "type": "color",
+      "value": "#DDEBE4"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Newsreader"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Geist"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 4
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 14
+    },
+    "space-1": {
+      "type": "number",
+      "value": 4
+    },
+    "space-2": {
+      "type": "number",
+      "value": 8
+    },
+    "space-3": {
+      "type": "number",
+      "value": 12
+    },
+    "space-4": {
+      "type": "number",
+      "value": 16
+    },
+    "space-6": {
+      "type": "number",
+      "value": 24
+    },
+    "space-8": {
+      "type": "number",
+      "value": 32
+    },
+    "space-12": {
+      "type": "number",
+      "value": 48
+    }
+  },
+  "fileToken": "700f0bc3-b14a-4dfd-98d9-4f6a00dd6df6"
+}
