@@ -11,6 +11,12 @@ export type WinningLine = readonly [number, number, number]
 export type Difficulty = 'easy' | 'hard'
 export type GamePhase = 'human-turn' | 'computer-turn' | 'finished'
 
+export interface SessionScore {
+  human: number
+  computer: number
+  draws: number
+}
+
 export type GameResult
   = | { status: 'playing' }
     | { status: 'draw' }

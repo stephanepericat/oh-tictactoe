@@ -24,6 +24,10 @@ describe('single-player game', () => {
       .toBe('Row 1, column 1, empty')
     expect(wrapper.text()).toContain('hard mode')
     expect(wrapper.text()).toContain('Your move, human.')
+    expect(wrapper.get('[aria-label="You, 0 wins"]').text()).toBe('00')
+    expect(wrapper.get('[aria-label="CPU, 0 wins"]').text()).toBe('00')
+    expect(wrapper.get('[aria-label="Draws, 0 draws"]').text()).toBe('00')
+    expect(buttonNamed('Reset score').attributes('disabled')).toBeDefined()
   })
 
   it('accepts one human move and locks input until Hard responds', async () => {
@@ -123,6 +127,29 @@ describe('single-player game', () => {
     expect(wrapper.text()).toContain('LINE FOUND')
     expect(wrapper.findAll('[data-winning="true"]')).toHaveLength(3)
     expect(cell(8).attributes('aria-disabled')).toBe('true')
+    expect(wrapper.get('[aria-label="You, 1 win"]').text()).toBe('01')
+  })
+
+  it('resets the visible session score', async () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    wrapper = await mountGame()
+
+    await wrapper.get('[aria-label="Difficulty"] [aria-pressed="false"]').trigger('click')
+    await buttonNamed('New round').trigger('click')
+    vi.useFakeTimers()
+
+    await cell(0).trigger('click')
+    vi.advanceTimersByTime(260)
+    await nextTick()
+    await cell(3).trigger('click')
+    vi.advanceTimersByTime(260)
+    await nextTick()
+    await cell(6).trigger('click')
+    await buttonNamed('Reset score').trigger('click')
+
+    expect(wrapper.get('[aria-label="You, 0 wins"]').text()).toBe('00')
+    expect(buttonNamed('Reset score').attributes('disabled')).toBeDefined()
+    expect(wrapper.text()).toContain('You found the line.')
   })
 
   async function mountGame(): Promise<VueWrapper> {

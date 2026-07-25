@@ -18,6 +18,11 @@ describe('useTicTacToe', () => {
     expect(game.phase.value).toBe('human-turn')
     expect(game.statusTitle.value).toBe('Your move, human.')
     expect(game.board.value).toEqual(Array(9).fill(null))
+    expect(game.scores.value).toEqual({
+      human: 0,
+      computer: 0,
+      draws: 0
+    })
   })
 
   it('locks human input while the computer turn is pending', () => {
@@ -68,18 +73,11 @@ describe('useTicTacToe', () => {
     expect(game.board.value[8]).toBe('O')
   })
 
-  it('finishes immediately when the human wins', () => {
+  it('counts a human win once and preserves it across rounds', () => {
     vi.useFakeTimers()
     const game = createGame({ random: () => 0 })
 
-    game.setNextDifficulty('easy')
-    game.newRound()
-
-    game.playCell(0)
-    vi.advanceTimersByTime(260)
-    game.playCell(3)
-    vi.advanceTimersByTime(260)
-    game.playCell(6)
+    completeHumanWin(game)
 
     expect(game.result.value).toEqual({
       status: 'won',
@@ -90,6 +88,65 @@ describe('useTicTacToe', () => {
     expect(game.statusTitle.value).toBe('You found the line.')
     expect(game.playCell(8)).toBe(false)
     expect(vi.getTimerCount()).toBe(0)
+    expect(game.scores.value.human).toBe(1)
+
+    game.newRound()
+
+    expect(game.scores.value.human).toBe(1)
+  })
+
+  it('counts a computer win', () => {
+    vi.useFakeTimers()
+    const game = createGame({ random: () => 0 })
+
+    game.setNextDifficulty('easy')
+    game.newRound()
+
+    for (const move of [0, 3, 5, 8]) {
+      game.playCell(move)
+      vi.advanceTimersByTime(260)
+    }
+
+    expect(game.result.value.status).toBe('won')
+    expect(game.scores.value).toEqual({
+      human: 0,
+      computer: 1,
+      draws: 0
+    })
+  })
+
+  it('counts a draw', () => {
+    vi.useFakeTimers()
+    const game = createGame()
+
+    for (const move of [0, 1, 6, 5, 7]) {
+      game.playCell(move)
+      vi.advanceTimersByTime(260)
+    }
+
+    expect(game.result.value).toEqual({ status: 'draw' })
+    expect(game.scores.value).toEqual({
+      human: 0,
+      computer: 0,
+      draws: 1
+    })
+  })
+
+  it('resets every session score without starting a new round', () => {
+    vi.useFakeTimers()
+    const game = createGame({ random: () => 0 })
+
+    completeHumanWin(game)
+    const roundNumber = game.roundNumber.value
+    game.resetScores()
+
+    expect(game.scores.value).toEqual({
+      human: 0,
+      computer: 0,
+      draws: 0
+    })
+    expect(game.roundNumber.value).toBe(roundNumber)
+    expect(game.result.value.status).toBe('won')
   })
 
   function createGame(options: Parameters<typeof useTicTacToe>[0] = {}) {
@@ -102,5 +159,15 @@ describe('useTicTacToe', () => {
     }
 
     return game
+  }
+
+  function completeHumanWin(game: ReturnType<typeof useTicTacToe>): void {
+    game.setNextDifficulty('easy')
+    game.newRound()
+    game.playCell(0)
+    vi.advanceTimersByTime(260)
+    game.playCell(3)
+    vi.advanceTimersByTime(260)
+    game.playCell(6)
   }
 })

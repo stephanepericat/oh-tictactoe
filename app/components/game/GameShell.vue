@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import GameBoard from './GameBoard.vue'
 import GameControls from './GameControls.vue'
+import GameScoreboard from './GameScoreboard.vue'
 import GameStatus from './GameStatus.vue'
 
 const game = useTicTacToe()
@@ -40,14 +41,21 @@ const game = useTicTacToe()
         </div>
       </main>
 
-      <GameControls
-        class="lg:sticky lg:top-28"
-        :round-difficulty="game.roundDifficulty.value"
-        :next-difficulty="game.nextDifficulty.value"
-        :difficulty-change-pending="game.difficultyChangePending.value"
-        @difficulty="game.setNextDifficulty"
-        @new-round="game.newRound"
-      />
+      <aside class="border-t border-[var(--game-border)] pt-7 lg:sticky lg:top-28 lg:border-t-0 lg:pt-0">
+        <GameScoreboard
+          :scores="game.scores.value"
+          @reset="game.resetScores"
+        />
+
+        <GameControls
+          class="mt-7"
+          :round-difficulty="game.roundDifficulty.value"
+          :next-difficulty="game.nextDifficulty.value"
+          :difficulty-change-pending="game.difficultyChangePending.value"
+          @difficulty="game.setNextDifficulty"
+          @new-round="game.newRound"
+        />
+      </aside>
     </div>
   </UContainer>
 </template>

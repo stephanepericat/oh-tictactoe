@@ -1,5 +1,5 @@
 import { computed, onScopeDispose, readonly, shallowRef } from 'vue'
-import type { Board, Difficulty, GamePhase } from '#shared/types/tic-tac-toe'
+import type { Board, Difficulty, GamePhase, SessionScore } from '#shared/types/tic-tac-toe'
 import { chooseEasyMove, chooseHardMove } from '#shared/utils/tic-tac-toe-ai'
 import { createBoard, getGameResult, placeMark } from '#shared/utils/tic-tac-toe'
 
@@ -22,6 +22,11 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
   const roundDifficulty = shallowRef<Difficulty>('hard')
   const nextDifficulty = shallowRef<Difficulty>('hard')
   const roundNumber = shallowRef(1)
+  const scores = shallowRef<SessionScore>({
+    human: 0,
+    computer: 0,
+    draws: 0
+  })
   let computerTimer: ReturnType<typeof setTimeout> | undefined
 
   const result = computed(() => getGameResult(board.value))
@@ -110,6 +115,14 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     phase.value = 'human-turn'
   }
 
+  function resetScores(): void {
+    scores.value = {
+      human: 0,
+      computer: 0,
+      draws: 0
+    }
+  }
+
   function playComputerTurn(): void {
     computerTimer = undefined
 
@@ -141,8 +154,31 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
   }
 
   function finishIfTerminal(): boolean {
-    if (result.value.status === 'playing') {
+    const terminalResult = result.value
+
+    if (terminalResult.status === 'playing') {
       return false
+    }
+
+    if (phase.value === 'finished') {
+      return true
+    }
+
+    if (terminalResult.status === 'draw') {
+      scores.value = {
+        ...scores.value,
+        draws: scores.value.draws + 1
+      }
+    } else if (terminalResult.winner === HUMAN_MARK) {
+      scores.value = {
+        ...scores.value,
+        human: scores.value.human + 1
+      }
+    } else {
+      scores.value = {
+        ...scores.value,
+        computer: scores.value.computer + 1
+      }
     }
 
     phase.value = 'finished'
@@ -169,10 +205,12 @@ export function useTicTacToe(options: UseTicTacToeOptions = {}) {
     nextDifficulty: readonly(nextDifficulty),
     difficultyChangePending,
     roundNumber: readonly(roundNumber),
+    scores: readonly(scores),
     statusTitle,
     statusDetail,
     playCell,
     setNextDifficulty,
-    newRound
+    newRound,
+    resetScores
   }
 }

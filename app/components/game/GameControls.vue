@@ -18,7 +18,7 @@ const difficulties: readonly Difficulty[] = ['hard', 'easy']
 </script>
 
 <template>
-  <aside class="border-t border-[var(--game-border)] pt-7 lg:border-t-0 lg:pt-0">
+  <div>
     <section aria-labelledby="difficulty-title">
       <div class="flex items-end justify-between gap-4">
         <h2
@@ -112,5 +112,5 @@ const difficulties: readonly Difficulty[] = ['hard', 'easy']
     >
       New round
     </UButton>
-  </aside>
+  </div>
 </template>
